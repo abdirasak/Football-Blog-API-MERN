@@ -1,0 +1,21 @@
+{
+  "name": "sports_blog",
+  "version": "1.0.0",
+  "description": "Sport articles",
+  "main": "app.js",
+  "scripts": {
+    "start": "node backend/app.js",
+    "server": "nodemon backend/app.js"
+  },
+  "author": "A Ahmed",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
