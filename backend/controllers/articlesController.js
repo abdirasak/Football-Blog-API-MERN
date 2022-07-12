@@ -1,19 +1,35 @@
 const Article = require('../models/articleModel')
+const User = require('../models/userModel')
 
 // @desc    Get All articles or by query
 // @route   GET /api/articles
 // @access  Public
 exports.getArticles = async(req, res) => {
     try {
-        const artcles = await Article.find(req.query)
-        res.status(200).json({count: artcles.length, data: artcles}) 
+            const artcles = await Article.find()
+            res.status(200).json({count: artcles.length, data: artcles})  
+    } catch (error) {
+        res.status(404).json({
+            message: "Articles not found",
+            err: error.message,
+        })
+    } 
+}
+
+// @desc    Get All articles of the loged in user
+// @route   GET /api/articles
+// @access  Private
+exports.getArticlesByUser = async(req, res) => {
+   
+    try {
+            const artcles = await Article.find({user: req.user.id})
+            res.status(200).json({count: artcles.length, data: artcles})  
     } catch (error) {
         res.status(404).json({
             message: "Articles not found",
             err: error.message,
         })
     }
-    
 }
 
 // @desc    Get article by id
@@ -28,39 +44,56 @@ exports.getArticle = async(req, res) => {
             message: "Article Not Found",
             err: error.message,
         })
-    }
-    
+    }  
 }
 
 // @desc    POST post artcle
 // @route   POST /api/articles
 // @access  Private
 exports.postArticle = async(req, res) => {
-    try {
-        const addStudent = await Article.create(req.body)
-        res.status(200).json({data: addStudent})
-    } catch (error) {
-        res.status(401).json({
-            message: "Artcile not created",
-            err: errorr.message,
+        if (!req.body) {
+            res.status(400)
+            throw new Error('Please add all fields')
+        }
+   
+        const addStudent = await Article.create({
+            user: req.user.id,
+            league: req.body.league,
+            team: req.body.team,
+            title: req.body.title,
+            article: req.body.article
         })
-    }
-    
+        res.status(200).json({data: addStudent}) 
 }
 
 // @desc    PUT update article
 // @route   PUT /api/articles/:id
 // @access  Private
 exports.editArticle = async(req, res) => {
-    try {
-        const updatedpost = await Article.findByIdAndUpdate(req.params.id, req.body, {new: true})
-        res.status(200).json(updatedpost) 
-    } catch (error) {
-        res.status(400).json({
-            message: "Article Not Found",
-            err: error.message,
-        })
-    }  
+    const article = await Article.findById(req.params.id)
+
+    if (!article) {
+      res.status(400)
+      throw new Error('Goal not found')
+    }
+  
+    // Check for user
+    if (!req.user) {
+      res.status(401)
+      throw new Error('User not found')
+    }
+  
+    // Make sure the logged in user matches the goal user
+    if (article.user.toString() !== req.user.id) {
+      res.status(401)
+      throw new Error('User not authorized')
+    }
+  
+    const updateArticle = await Article.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    })
+  
+    res.status(200).json(updateArticle)
 }
 
 // @desc    Delete article by id
