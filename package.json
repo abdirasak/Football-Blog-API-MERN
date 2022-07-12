@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node backend/app.js",
-    "server": "nodemon backend/app.js"
+    "server": "nodemon backend/app.js",
+    "client": "npm start --prefix frontend"
   },
   "author": "A Ahmed",
   "license": "MIT",
