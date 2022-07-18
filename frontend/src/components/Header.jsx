@@ -1,19 +1,17 @@
-import {Carousel} from 'react-bootstrap/Carousel';
-import React, { useState } from 'react';
+import Carousel from 'react-bootstrap/Carousel';
+import bg1 from '../img/bg1.png';
+
 
 function Header() {
-    const [index, setIndex] = useState(0);
-    const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-    };
+    
     
   return (
     <>
-    <Carousel activeIndex={index} onSelect={handleSelect}>
+    <Carousel>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
+          src={bg1}
           alt="First slide"
         />
         <Carousel.Caption>
@@ -24,7 +22,7 @@ function Header() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src={bg1}
           alt="Second slide"
         />
 
@@ -36,7 +34,7 @@ function Header() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
+          src={bg1}
           alt="Third slide"
         />
 

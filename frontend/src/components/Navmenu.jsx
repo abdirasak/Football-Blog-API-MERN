@@ -1,4 +1,4 @@
-import {FaSignInAlt, FaSignOutAlt, FaUser, FaHouseUser} from 'react-icons/fa'
+import {FaSignInAlt, FaSignOutAlt, FaUser, FaHouseUser, FaThList} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 function Navlinks() {
@@ -9,6 +9,11 @@ function Navlinks() {
         </div>
 
         <ul>
+        <li>
+              <Link to='/'>
+                <FaThList/> Home
+              </Link>
+        </li>
 
         <li>
               <Link to='/dashboard'>
@@ -16,11 +21,11 @@ function Navlinks() {
               </Link>
         </li>
         
-          <li>
-            <button className='btn'>
-              <FaSignOutAlt /> Logout
-            </button>
-          </li>
+        <li>
+          <button className='btn'>
+            <FaSignOutAlt /> Logout
+          </button>
+        </li>
        
           <>
             <li>
