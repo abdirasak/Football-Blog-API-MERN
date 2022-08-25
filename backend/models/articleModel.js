@@ -5,7 +5,7 @@ const articleSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
-    }, 
+    },
     league: {
         type: String,
         required: [true, 'Please add league title']
@@ -15,7 +15,7 @@ const articleSchema = mongoose.Schema({
         type: String,
         required: [true, 'Please add team name']
     },
-    
+
     title: {
         type: String,
         required: [true, 'Please add title']
@@ -24,6 +24,11 @@ const articleSchema = mongoose.Schema({
     article: {
         type: String,
         required: [true, 'Please add article']
+    },
+
+    articleImage: {
+        type: String,
+        required: [true, 'Please add an image']
     }
 })
 
