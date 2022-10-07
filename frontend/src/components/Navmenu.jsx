@@ -1,45 +1,31 @@
-import {FaSignInAlt, FaSignOutAlt, FaUser, FaHouseUser, FaThList} from 'react-icons/fa'
+import { FaSignInAlt, FaUser, } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import of from '../img/of-logo.png'
 
 function Navlinks() {
   return (
     <header className="header">
-        <div className='logo'> 
-            <Link to="/">GoFootball</Link>
-        </div>
+      <div className='logo'>
+        <Link to="/">
+          <img src={of} alt="" style={{ width: '133px', height: "80px" }} />
 
-        <ul>
-        <li>
-              <Link to='/'>
-                <FaThList/> Home
-              </Link>
-        </li>
+        </Link>
+      </div>
+
+      <ul>
 
         <li>
-              <Link to='/dashboard'>
-                <FaHouseUser /> Dashboard
-              </Link>
+          <Link to='/login'>
+            <FaSignInAlt /> Login
+          </Link>
         </li>
-        
         <li>
-          <button className='btn'>
-            <FaSignOutAlt /> Logout
-          </button>
+          <Link to='/register'>
+            <FaUser /> Register
+          </Link>
         </li>
-       
-          <>
-            <li>
-              <Link to='/login'>
-                <FaSignInAlt /> Login
-              </Link>
-            </li>
-            <li>
-              <Link to='/register'>
-                <FaUser /> Register
-              </Link>
-            </li>
 
-          </>
+
       </ul>
     </header>
   )

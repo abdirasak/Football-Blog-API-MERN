@@ -1,6 +1,6 @@
 const Article = require('../models/articleModel')
 const User = require('../models/userModel')
-const multer = require('multer')
+
 
 
 // @desc    Get All articles or by query
@@ -18,8 +18,8 @@ exports.getArticles = async (req, res) => {
     }
 }
 
-// @desc    Get All articles of the loged in user
-// @route   GET /api/articles
+// @desc    Get All articles of the logged in user
+// @route   GET /api/articles/currUser
 // @access  Private
 exports.getArticlesByUser = async (req, res) => {
 
@@ -49,17 +49,16 @@ exports.getArticle = async (req, res) => {
     }
 }
 
-// @desc    POST post artcle
+// @desc    Articles can be added by logged in user only 
 // @route   POST /api/articles
 // @access  Private
 exports.postArticle = async (req, res) => {
-    console.log(req.file);
     if (!req.body) {
         res.status(400)
         throw new Error('Please add all fields')
     }
 
-    const addStudent = await Article.create({
+    const addArticle = await Article.create({
         user: req.user.id,
         league: req.body.league,
         team: req.body.team,
@@ -67,46 +66,68 @@ exports.postArticle = async (req, res) => {
         article: req.body.article,
         articleImage: req.file.path
     })
-    res.status(200).json({ data: addStudent })
+    res.status(200).json({ data: addArticle })
 }
 
-// @desc    PUT update article
+// @desc    Articles can be updated by owner or admin
 // @route   PUT /api/articles/:id
 // @access  Private
 exports.editArticle = async (req, res) => {
-    const article = await Article.findById(req.params.id)
 
-    if (!article) {
-        res.status(400)
-        throw new Error('Goal not found')
+    try {
+        //find article by id
+        const article = await Article.findById(req.params.id)
+
+        //check if article exists 
+        if (!article) {
+            res.status(400)
+            throw new Error('Article not found')
+        }
+
+        // check if the loged in user matches the article user
+        if (article.user.toString() !== req.user.id && req.user.role !== "admin") {
+            res.status(401)
+            throw new Error('User not authorised to edit this article')
+        }
+
+        const updateArticle = await Article.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+        })
+
+        res.status(200).json({ data: updateArticle })
+
+    } catch (error) {
+        res.status(400).json({
+            message: "Article Not Found",
+            err: error.message,
+        })
     }
 
-    // Check for user
-    if (!req.user) {
-        res.status(401)
-        throw new Error('User not found')
-    }
-
-    // Make sure the logged in user matches the goal user
-    if (article.user.toString() !== req.user.id) {
-        res.status(401)
-        throw new Error('User not authorized')
-    }
-
-    const updateArticle = await Article.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-    })
-
-    res.status(200).json(updateArticle)
 }
 
-// @desc    Delete article by id
-// @route   DELETE /api/:id
+// @desc    Article  can be deleted by admin or owner
+// @route   DELETE /api/articles/:id
 // @access  Private
 exports.deleteArticle = async (req, res) => {
     try {
-        await Article.findByIdAndRemove(req.params.id)
+        const article = await Article.findById(req.params.id)
+
+        //check if article exists 
+        if (!article) {
+            res.status(400)
+            throw new Error('Article not found')
+        }
+
+        // check if the logged in user id matches the article user
+        if (article.user.toString() !== req.user.id && req.user.role !== "admin") {
+            res.status(401)
+            throw new Error('Not outhorised to delete this article')
+        }
+
+        //Delete article
+        await article.remove()
         res.status(200).json({ id: req.params.id })
+
     } catch (error) {
         res.status(400).json({
             message: "Article Not Found",

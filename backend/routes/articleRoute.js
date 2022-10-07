@@ -17,10 +17,10 @@ const upload = multer({ storage: storage })
 
 
 router.get('/', getArticles)
-router.get('/userAricles', protect, getArticlesByUser)
+router.get('/currUser', protect, getArticlesByUser)
 router.get('/:id', getArticle)
 router.post('/', upload.single('articleImage'), protect, postArticle)
-router.put('/:id', protect, editArticle)
+router.put('/:id', protect, checkAccess("admin", "basic"), editArticle)
 router.delete('/:id', protect, checkAccess("admin", "basic"), deleteArticle)
 
 
