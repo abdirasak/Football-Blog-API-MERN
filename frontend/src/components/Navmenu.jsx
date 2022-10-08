@@ -1,13 +1,13 @@
 import { FaSignInAlt, FaUser, } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import of from '../img/of-logo.png'
+import of from '../img/logo-two.png'
 
 function Navlinks() {
   return (
     <header className="header">
       <div className='logo'>
         <Link to="/">
-          <img src={of} alt="" style={{ width: '133px', height: "80px" }} />
+          <img src={of} alt="" style={{ width: '190px', height: "60px" }} />
 
         </Link>
       </div>

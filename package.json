@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node backend/app.js",
     "server": "nodemon backend/app.js",
-    "client": "npm start --prefix frontend"
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "A Ahmed",
   "license": "MIT",
@@ -14,6 +15,7 @@
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
