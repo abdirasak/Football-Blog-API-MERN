@@ -29,7 +29,7 @@ function Register() {
     }
 
     if (isSuccess || user) {
-      navigate('/')
+      navigate('/dashboard')
     }
 
     dispatch(reset())
@@ -106,7 +106,7 @@ function Register() {
 
           <div className="form-group">
             <input
-              type="passowrd"
+              type="password"
               className="form-control"
               id='password2'
               name='password2'
