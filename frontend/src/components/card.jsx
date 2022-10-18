@@ -3,10 +3,16 @@ import React from 'react'
 function card(props) {
   const { article } = props
   return (
-    <div>
-      <img src={article.articleImage} style={{ width: '250px', height: '150px' }} alt="" />
-      <h3>{article.title}</h3>
-      <p>{article.article}</p>
+    <div className='card'>
+      <div className="card-image">
+        <img src={article.articleImage} style={{ height: '180px' }} alt="" />
+      </div>
+
+      <div className="card-body">
+        <h2>{article.title}</h2>
+        <p>{article.article.slice(0, 90) + '..........'}</p>
+        <button className='btn btn-block'>Read More</button>
+      </div>
     </div>
   )
 }

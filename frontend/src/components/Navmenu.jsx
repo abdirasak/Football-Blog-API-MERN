@@ -1,4 +1,4 @@
-import { FaSignOutAlt, FaSignInAlt, FaUser, } from 'react-icons/fa'
+import { FaSignOutAlt, FaSignInAlt, FaUser, FaHome } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
@@ -26,11 +26,20 @@ function Navlinks() {
       <ul>
 
         {user ? (
-          <li>
-            <button className='btn' onClick={onLogout}>
-              <FaSignOutAlt /> Logout
-            </button>
-          </li>
+          <>
+            <li>
+              <Link to='/Dashboard'>
+                <FaHome /> Dashboard
+              </Link>
+            </li>
+
+            <li>
+              <button className='btn' onClick={onLogout}>
+                <FaSignOutAlt /> Logout
+              </button>
+            </li>
+
+          </>
         ) : (
           <>
             <li>

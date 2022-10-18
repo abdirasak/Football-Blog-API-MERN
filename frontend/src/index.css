@@ -48,7 +48,7 @@ h3 {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  margin-bottom: 45px;
+  margin-bottom: 5px;
   border-bottom: 1px solid #e6e6e6;
 }
 
@@ -191,6 +191,44 @@ h3 {
   animation: spin 1.2s linear infinite;
 }
 
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.card {
+  width: 275px;
+  margin: 10px;
+  background-color: #F8F9F9;
+  border-radius: 10px;
+  box-shadow: 3.9px 7.3px 7.3px hsl(0deg 0% 0% / 0.28);
+}
+
+.card-image img {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-body h2 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.card-body p {
+  font-size: 14px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+
+
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -212,5 +250,9 @@ h3 {
 
   .heading p {
     font-size: 1.5rem;
+  }
+
+  .card {
+    width: 330px;
   }
 }

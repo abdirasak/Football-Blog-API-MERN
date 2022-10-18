@@ -4,6 +4,7 @@ import { toast } from 'react-toastify'
 import { getArticles, reset } from '../features/articles/articleSlice'
 import Spinner from '../components/spinner'
 import Card from '../components/card'
+import Hero from '../components/Hero/Hero'
 
 function Home() {
   const dispatch = useDispatch()
@@ -28,11 +29,14 @@ function Home() {
   }
 
   return (
-    <section>
-      {articles.data && articles.data.map((article) => (
-        <Card key={article._id} article={article} />
-      ))}
-    </section>
+    <>
+      <Hero />
+      <section className='card-container'>
+        {articles.data && articles.data.map((article) => (
+          <Card key={article._id} article={article} />
+        ))}
+      </section>
+    </>
   )
 }
 
