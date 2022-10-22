@@ -1,0 +1,34 @@
+.dashContainer {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 1rem;
+  grid-auto-rows: minmax(250px, auto);
+}
+
+.dashContainer>div {
+  background: #f7fafa;
+  margin-top: 15px;
+}
+
+.dashSidebar {
+  box-shadow: 3.9px 7.3px 7.3px hsl(0deg 0% 0% / 0.28);
+}
+
+.dashMainContent {
+  padding: 10px;
+  box-shadow: 3.9px 7.3px 7.3px hsl(0deg 0% 0% / 0.28);
+}
+
+.dashMainContent h1 {
+  text-align: left;
+}
+
+.dashMainContent button {
+  background-color: aquamarine;
+  color: #ccc;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}

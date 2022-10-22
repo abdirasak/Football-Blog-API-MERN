@@ -1,0 +1,26 @@
+@media (min-width: 850px) {
+  .featured {
+    background: #F8F9F9;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 15px 0px;
+    border: 6px solid white;
+    box-shadow: 3.9px 7.3px 7.3px hsl(0deg 0% 0% / 0.28);
+  }
+
+}
+
+.featured {
+  background: #F8F9F9;
+  border: 6px solid #fff;
+  box-shadow: 3.9px 7.3px 7.3px hsl(0deg 0% 0% / 0.28);
+}
+
+.featured-img {
+  padding: 10px;
+}
+
+.featured-text {
+  padding: 20px;
+  text-align: left;
+}
