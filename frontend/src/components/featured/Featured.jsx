@@ -17,7 +17,6 @@ function featured() {
         <h3>{featured.title}</h3>
         <p>{featured.article}</p>
       </div>
-
     </div>
   )
 }

@@ -4,7 +4,6 @@ import { toast } from 'react-toastify'
 import { getArticles, reset } from '../features/articles/articleSlice'
 import Spinner from '../components/spinner'
 import Card from '../components/card/card'
-import Hero from '../components/Hero/Hero'
 import Featured from '../components/featured/Featured'
 
 function Home() {
