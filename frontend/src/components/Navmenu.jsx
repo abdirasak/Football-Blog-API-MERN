@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
 import of from '../img/logo-two.png'
+import '../index.css'
 
 function Navlinks() {
   const navigate = useNavigate()
@@ -34,7 +35,7 @@ function Navlinks() {
             </li>
 
             <li>
-              <button className='btn' onClick={onLogout}>
+              <button className='logoutBtn' onClick={onLogout}>
                 <FaSignOutAlt /> Logout
               </button>
             </li>

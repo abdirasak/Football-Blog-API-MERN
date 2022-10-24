@@ -191,6 +191,9 @@ h3 {
   animation: spin 1.2s linear infinite;
 }
 
+.logoutBtn {
+  background: #000;
+}
 
 @keyframes spin {
   0% {

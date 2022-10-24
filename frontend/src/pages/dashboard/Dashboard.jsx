@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Dashboard.css'
 import { FaPlus } from 'react-icons/fa'
 import Hero from '../../components/Hero/Hero'
@@ -6,9 +6,13 @@ import AuthArticles from '../../components/authArticles/AuthArticles'
 import premier from '../../assets/images/premier-league.png'
 import laliga from '../../assets/images/laliga.png'
 import Bundesliga from '../../assets/images/bundesliga.jpg'
+import Modal from '../../components/modal/Modal'
+import '../../components/modal/modal.css'
 
 
 function Dashboard() {
+  const [openModal, setOpenModal] = useState(false);
+
   const articles = [
     {
       id: 1,
@@ -57,7 +61,10 @@ function Dashboard() {
         </div>
         <div className="header">
           <h1>Latest Articles</h1>
-          <button><FaPlus className='icon' /></button>
+          <button onClick={() => setOpenModal(true)} ><FaPlus className='icon' /></button>
+          <Modal
+            open={openModal}
+            onClose={() => setOpenModal(false)} />
 
         </div>
         <div className="dashMainContent">
