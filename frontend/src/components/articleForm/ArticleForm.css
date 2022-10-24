@@ -1,0 +1,53 @@
+.article-form {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.f-group input,
+.f-group textarea,
+.f-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.f-group label {
+  text-align: left;
+  display: block;
+  margin: 0 0 5px 3px;
+}
+
+.f-heading {
+  width: 300px;
+  text-align: center;
+}
+
+.heading h3 {
+  font-size: 22px;
+  margin-top: 15px;
+  text-transform: uppercase;
+}
+
+.f-group .f-btn {
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background: #10bbc4;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-group .btn-block {
+  width: 100%;
+  margin-bottom: 20px;
+}

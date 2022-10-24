@@ -1,6 +1,6 @@
 /* Modal */
 .modalContainer {
-  max-width: 600px;
+  max-width: 900px;
   width: 100%;
   position: fixed;
   top: 45%;
@@ -20,7 +20,7 @@
 } */
 
 img {
-  width: 250px;
+  width: 300px;
   object-fit: cover;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -30,19 +30,21 @@ img {
   width: 100%;
 }
 
-.closeBtn {
+.closeBtn .closeIcon {
   position: fixed;
   top: 8px;
   right: 8px;
+  color: #575555;
+  width: 25px;
+  height: 25px;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  margin-top: 3rem;
-  padding: 1rem 2rem;
+  /*justify-content: center;
+  text-align: center; */
+  margin-top: 2rem;
 }
 
 .btnContainer {

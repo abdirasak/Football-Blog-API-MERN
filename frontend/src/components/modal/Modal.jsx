@@ -2,6 +2,7 @@ import React from 'react';
 import hero from '../../assets/images/Hero.jpeg';
 import './modal.css'
 import { FaRegWindowClose } from 'react-icons/fa'
+import ArticleForm from '../articleForm/ArticleForm';
 
 const Modal = ({ open, onClose }) => {
   if (!open) return null;
@@ -16,12 +17,10 @@ const Modal = ({ open, onClose }) => {
         <img src={hero} alt='/' />
         <div className='modalRight'>
           <p className='closeBtn' onClick={onClose}>
-            <FaRegWindowClose style={{ color: '#10bbc4' }} />
+            <FaRegWindowClose className='closeIcon' />
           </p>
           <div className='content'>
-            <p>Do you want a</p>
-            <h1>$20 CREDIT</h1>
-            <p>for your first tade?</p>
+            <ArticleForm />
           </div>
         </div>
       </div>

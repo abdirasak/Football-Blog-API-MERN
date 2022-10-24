@@ -18,35 +18,35 @@ function Dashboard() {
       id: 1,
       img: premier,
       title: 'Premier League',
-      article: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.'
+      article: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.'
     },
 
     {
       id: 2,
       img: laliga,
       title: 'La Liga',
-      article: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.'
+      article: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.'
     },
 
     {
       id: 3,
       img: premier,
       title: 'Premier League',
-      article: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.'
+      article: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.'
     },
 
     {
       id: 4,
       img: Bundesliga,
       title: 'Bundesliga',
-      article: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.'
+      article: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.'
     },
 
     {
       id: 5,
       img: laliga,
       title: 'La Liga',
-      article: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.'
+      article: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, dolorem? Aliquam temporibus distinctio fugiat unde tenetur voluptates qui fuga mollitia.'
     }
 
   ]

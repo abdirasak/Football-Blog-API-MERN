@@ -29,6 +29,7 @@ li {
 }
 
 h1,
+h2,
 h3 {
   font-weight: 600;
   margin-bottom: 10px;
@@ -36,7 +37,7 @@ h3 {
 
 .container {
   width: 100%;
-  max-width: 1260px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
@@ -47,9 +48,8 @@ h3 {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  margin-bottom: 5px;
   border-bottom: 1px solid #e6e6e6;
-
+  margin-bottom: 60px;
 }
 
 .header ul {
@@ -110,7 +110,7 @@ h3 {
 
 .form,
 .content {
-  width: 65%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -137,7 +137,7 @@ h3 {
 
 .btn {
   padding: 10px 20px;
-  border: 1px solid #fff;
+  border: 1px solid #ccc;
   border-radius: 5px;
   background: #10bbc4;
   color: #fff;
@@ -191,10 +191,6 @@ h3 {
   animation: spin 1.2s linear infinite;
 }
 
-.logoutBtn {
-  background: #000;
-}
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -216,10 +212,5 @@ h3 {
 
   .heading p {
     font-size: 1.5rem;
-  }
-
-  .card {
-    width: 330px;
-    justify-content: center;
   }
 }
