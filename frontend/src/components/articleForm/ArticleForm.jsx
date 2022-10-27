@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { createArticle } from '../../features/author/authorSlice'
 import { FaFileAlt } from 'react-icons/fa'
 import './ArticleForm.css'
 
@@ -13,15 +15,26 @@ function ArticleForm() {
   })
 
   const { league, team, title, article, articleImage } = formData
+  const dispatch = useDispatch()
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    dispatch(createArticle(formData))
+    setFormData('')
+  }
 
   const onChange = (e) => {
+
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
 
-
     }))
+    console.log(e.target.articleImage)
   }
+
+
 
   return (
     <>
@@ -33,7 +46,7 @@ function ArticleForm() {
       </section>
 
       <section className='article-form'>
-        <form>
+        <form onSubmit={onSubmit}>
           <div className="f-group">
             <input
               type="text"
@@ -61,12 +74,11 @@ function ArticleForm() {
               id='title'
               name='title'
               value={title} onChange={onChange}
-              placeholder='Enter password' />
+              placeholder='Enter title' />
           </div>
 
           <div className="f-group">
-            <input
-              type="textarea"
+            <textarea
               className="f-control"
               id='article'
               name='article'
@@ -78,8 +90,8 @@ function ArticleForm() {
             <input
               type="file"
               className="f-control"
-              id='articleImage '
-              name='articleImage '
+              id='articleImage'
+              name='articleImage'
               value={articleImage} onChange={onChange}
               placeholder='Enter image' />
           </div>
