@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createArticle } from '../../features/author/authorSlice'
 import { FaFileAlt } from 'react-icons/fa'
+import { useForm } from 'react-hook-form'
 import './ArticleForm.css'
 
 function ArticleForm() {
@@ -11,16 +12,19 @@ function ArticleForm() {
     team: '',
     title: '',
     article: '',
-    articleImage: ''
   })
+  const [articleImage, setArticleImage] = useState('')
 
-  const { league, team, title, article, articleImage } = formData
+  const { league, team, title, article } = formData
   const dispatch = useDispatch()
 
   const onSubmit = (e) => {
     e.preventDefault()
+    const fd = new FormData()
+    fd.append(formData, articleImage)
+    console.log(fd)
 
-    dispatch(createArticle(formData))
+    dispatch(createArticle(fd))
     setFormData('')
   }
 
@@ -29,9 +33,12 @@ function ArticleForm() {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
-
     }))
-    console.log(e.target.articleImage)
+  }
+
+  const filenOnChange = (e) => {
+    console.log(e.target.files[0].name);
+
   }
 
 
@@ -92,7 +99,7 @@ function ArticleForm() {
               className="f-control"
               id='articleImage'
               name='articleImage'
-              value={articleImage} onChange={onChange}
+              onChange={filenOnChange}
               placeholder='Enter image' />
           </div>
 

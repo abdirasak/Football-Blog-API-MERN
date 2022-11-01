@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/articles'
+const API_URL = '/api/articles/'
 
 // Get all article
 const getArticles = async () => {

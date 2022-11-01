@@ -42,8 +42,6 @@ function Dashboard() {
 
         </div>
         <div className="dashMainContent">
-
-
           {articles.map((article) =>
           (
             <ul>
