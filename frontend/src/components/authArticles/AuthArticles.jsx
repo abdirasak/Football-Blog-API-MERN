@@ -9,7 +9,7 @@ const authArticles = (props) => {
     <div className='authContainer'>
 
       <div className="article-img">
-        <img src={article.img} alt="" />
+        <img src={article.articleImage} alt="" />
       </div>
 
       <div className="article-content">

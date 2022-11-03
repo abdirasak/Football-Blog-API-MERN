@@ -2,7 +2,7 @@ import { FaSignOutAlt, FaSignInAlt, FaUser, FaHome } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
-import of from '../img/logo-two.png'
+import of from '../img/logo.jpg'
 import '../index.css'
 
 function Navlinks() {

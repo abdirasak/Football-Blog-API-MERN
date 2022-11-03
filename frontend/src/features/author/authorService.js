@@ -7,7 +7,7 @@ const createArticle = async (articleData, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
-      'content-type': 'multipart/form-data'
+      'Content-Type': 'multipart/form-data'
     },
   }
 
@@ -16,9 +16,22 @@ const createArticle = async (articleData, token) => {
   return response.data
 }
 
+// Get user Articles
+const getArticles = async (token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+
+  const response = await axios.get(API_URL, config)
+
+  return response.data
+}
+
 const authorService = {
   createArticle,
-
+  getArticles
 }
 
 export default authorService
