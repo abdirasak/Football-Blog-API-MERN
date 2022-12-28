@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import authorService from './authorService'
 
 const initialState = {
-  authArticles: [],
+  articles: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -11,7 +11,7 @@ const initialState = {
 
 // Create new Article
 export const createArticle = createAsyncThunk(
-  'article/create',
+  'articles/create',
   async (articleData, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
@@ -62,7 +62,8 @@ export const authorSlice = createSlice({
       .addCase(createArticle.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.authArticles.push(action.payload)
+        console.log(action.payload)
+        state.articles.data.push(action.payload.data)
       })
       .addCase(createArticle.rejected, (state, action) => {
         state.isLoading = false
@@ -76,7 +77,7 @@ export const authorSlice = createSlice({
       .addCase(getArticles.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.authArticles = action.payload
+        state.articles = action.payload
       })
       .addCase(getArticles.rejected, (state, action) => {
         state.isLoading = false

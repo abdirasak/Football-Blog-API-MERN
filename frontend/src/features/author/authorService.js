@@ -24,7 +24,9 @@ const getArticles = async (token) => {
     },
   }
 
-  const response = await axios.get(API_URL, config)
+  const NEW_API = API_URL + 'currUser'
+
+  const response = await axios.get(NEW_API, config)
 
   return response.data
 }

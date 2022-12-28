@@ -17,7 +17,7 @@ function Dashboard() {
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.author)
-  const { authArticles, isLoading, isError, message } = useSelector(
+  const { articles, isLoading, isError, message } = useSelector(
     (state) => state.author
   )
   useEffect(() => {
@@ -46,7 +46,6 @@ function Dashboard() {
       <div className='dashContainer'>
         <div className="header">
           <h1>Latest Articles</h1>
-          <h3></h3>
           <button onClick={() => setOpenModal(true)} ><FaPlus className='icon' /></button>
           <Modal
             open={openModal}
@@ -54,7 +53,7 @@ function Dashboard() {
 
         </div>
         <div className="dashMainContent">
-          {authArticles.data && authArticles.data.map((article) =>
+          {articles.data && articles.data.map((article) =>
           (
             <ul>
               <li>{<AuthArticles key={article.id} article={article} />}</li>
